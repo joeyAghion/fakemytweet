@@ -1,0 +1,63 @@
+<style type="text/css">
+  body {
+    font-family:Helvetica, Arial, sans-serif;
+    color: #333;
+    padding:40px 20%;
+  }
+  label {
+    display:block;
+    font-size:110%;
+    font-weight:bold;
+    color:#aaa;
+  }
+  input.text_field {
+    border:1px solid #aaa;
+    font-size:110%;
+    width:400px;
+    padding:7px;
+  }
+  input.button {
+    width:100px;
+    border:1px solid #aaa;
+    font-size:110%;
+    background:#e6e6e6;
+    padding:7px;
+    color:#777;
+  }
+  input.button:hover {
+    border:1px solid #666;
+    color:#444;
+  }
+  input.minor_button {
+    font-size:70%;
+    padding:0;
+  }
+  h1 {
+    color:#efefef;
+    font-size:500%;
+    margin:0 0 20px 0;
+  }
+  h2 {
+    color:#fc0;
+    margin: 2em 0 0.5em;
+  }
+  p.fake_tweet {
+    float:left;
+    width:80%;
+  }
+</style>
+
+<h1>Fake My Tweet</h1>
+
+<% form_tag do %>
+  <label>Twitter Username:</label>
+  <%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
+  <%= submit_tag 'Fake it!', :class => 'button' %>
+<% end %>
+
+<% if @tweeter.has_tweets? %>
+  <h2><%=h @tweeter.screen_name %>'s next tweet:</h2>
+  <p><%=h @tweeter.next_tweet %></p>
+  <%= submit_tag 'Try another', :class => 'button minor_button' %>
+  <%= submit_tag 'Tweet this', :class => 'button minor_button' %>
+<% end %>
