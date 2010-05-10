@@ -5,8 +5,10 @@
     <title>Fake My Tweet</title>
   </head>
   <body>
+    <h1>Fake My Tweet</h1>
+
     <% if flash[:notice] -%>
-      <div id="notice"><%=h flash[:notice] %></div>
+      <p id="notice"><%=h flash[:notice] %></p>
     <% end %>
     
     <%= yield %>

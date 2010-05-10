@@ -23,6 +23,8 @@
     background:#e6e6e6;
     padding:7px;
     color:#777;
+    text-align:center;
+    text-decoration:none;
   }
   input.button:hover {
     border:1px solid #666;
@@ -47,17 +49,24 @@
   }
 </style>
 
-<h1>Fake My Tweet</h1>
-
 <% form_tag do %>
   <label>Twitter Username:</label>
   <%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
   <%= submit_tag 'Fake it!', :class => 'button' %>
 <% end %>
 
-<% if @tweeter.has_tweets? %>
+<% if @tweeter.has_tweets?
+  next_tweet = @tweeter.next_tweet
+%>
   <h2><%=h @tweeter.screen_name %>'s next tweet:</h2>
-  <p><%=h @tweeter.next_tweet %></p>
-  <%= submit_tag 'Try another', :class => 'button minor_button' %>
-  <%= submit_tag 'Tweet this', :class => 'button minor_button' %>
+  <p><%=h next_tweet %></p>
+  <% form_tag '', :style => 'display:inline' do %>
+    <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
+    <%= submit_tag 'Try another', :class => 'button minor_button' %>
+  <% end %>
+  <% form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
+    <%= hidden_field_tag :status, next_tweet + " (by @fakemytweet)" %>
+    <%= submit_tag 'Tweet this', :class => 'button minor_button' %>
+  <% end %>
+  
 <% end %>
