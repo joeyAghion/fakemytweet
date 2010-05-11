@@ -62,7 +62,7 @@
   <p><%=h next_tweet %></p>
   <% form_tag '', :style => 'display:inline' do %>
     <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
-    <%= submit_tag 'Try another', :class => 'button minor_button' %>
+    <%= submit_tag 'Try again', :class => 'button minor_button' %>
   <% end %>
   <% form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
     <%= hidden_field_tag :status, next_tweet + " (by @fakemytweet)" %>
