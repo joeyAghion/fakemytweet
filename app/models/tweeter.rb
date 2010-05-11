@@ -46,6 +46,7 @@ class Tweeter
       response = Typhoeus::Request.get(TWITTER_API_URL,
         :params => {'screen_name' => @screen_name, 'count' => MAX_TWEETS, 'skip_user' => true},
         :timeout => REQUEST_TIMEOUT_MS)
+      return nil if response.code == 404
       raise "Error retrieving tweets (code: #{response.code rescue '(none)'})." unless response.success?
       cached = JSON.parse(response.body).collect{|s| s['text'] }
       Rails.cache.write(tweets_cache_key, cached, :expires_in => 1.hour) unless cached.empty?

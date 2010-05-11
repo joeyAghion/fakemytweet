@@ -6,7 +6,13 @@ class MainController < ApplicationController
   
   def create
     begin
-      @tweeter.load_tweets if @tweeter.valid?
+      if @tweeter.valid?
+        if tweets = @tweeter.load_tweets
+          flash.now[:notice] = "#{params[:screen_name]} doesn't have enough tweets. Try a suggested user instead." if tweets.empty?
+        else
+          flash.now[:notice] = "We couldn't find that username. Try again, or select from the suggestions."
+        end
+      end
     rescue Timeout::Error => ex
       flash.now[:notice] = "We didn't hear back from Twitter in time. Try again later."
     rescue => ex
