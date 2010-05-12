@@ -18,5 +18,7 @@ end
 
 When /^(?:|I )fill in "([^\"]*)" with the non-existent screen-name "([^\"]*)"$/ do |field, screen_name|
   fill_in(field, :with => screen_name)
-  FakeWeb.register_uri(:get, tweet_url_regex_for(screen_name), :status => ["404", "Not Found"])
+  response = Typhoeus::Response.new(:code => 404)
+  Typhoeus::Hydra.hydra.stub(:get, tweet_url_regex_for(screen_name)).and_return(response)
+  # FakeWeb.register_uri(:get, tweet_url_regex_for(screen_name), :status => ["404", "Not Found"])
 end
