@@ -3,13 +3,13 @@ TO DO
 
 X> Hook up try another/tweet this buttons
 X> Handle bad names / no data
+X> Display notice of too few tweets if less than X with prompt to use suggestions.
+Show list of prolific/suggested tweeters as shortcuts instead of submitting screen_name.
+Ajax-ify tweet-downloading/generation.
+Google analytics.
+Log errors to hoptoad.
 Avoid single-use terms from driving a repeat tweet (randomness?).
 --Add route that includes twitter username.
-Ajax-ify tweet-downloading/generation.
 Generate more than one fake tweet.
-DIsplay notice of too few tweets if less than X with prompt to use suggestions.
-Log errors to hoptoad.
-Show list of prolific/suggested tweeters as shortcuts instead of submitting screen_name.
 Footer links to markov chain models.
 Feedback.
-Google analytics.
