@@ -3,14 +3,37 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>Fake My Tweet</title>
+    <style type="text/css">
+      body { font-family:Helvetica, Arial, sans-serif;color: #333;padding:40px 20%; }
+      label { display:block; font-size:110%; font-weight:bold; color:#aaa; }
+      input.text_field { border:1px solid #aaa; font-size:110%; width:400px; padding:7px; }
+      input.button { width:100px; border:1px solid #aaa; font-size:110%; background:#e6e6e6; padding:7px; color:#777; text-align:center; text-decoration:none; }
+      input.button:hover { border:1px solid #666; color:#444; }
+      input.minor_button { font-size:70%; padding:0; }
+      h1 { color:#efefef; font-size:500%; margin:0 0 20px 0; }
+      h2 { color:#fc0; margin: 2em 0 0.5em; }
+      p.fake_tweet { float:left; width:80%; }
+      .main { width:65%; float:left; padding:10px 2%; }
+      .sidebar { float:right; width:25%; margin-left:6%; font-size: 80%; color: #666; }
+      .sidebar a { color:#77c; }
+      .sidebar ul { list-style: none; margin: 0; padding: 0; }
+      .sidebar ul li { padding: 6px 0;}
+    </style>
   </head>
   <body>
     <h1>Fake My Tweet</h1>
 
-    <% if flash[:notice] -%>
-      <p id="notice"><%=h flash[:notice] %></p>
-    <% end %>
+    <div class="main">
+      <% if flash[:notice] -%>
+        <p id="notice"><%=h flash[:notice] %></p>
+      <% end %>
     
-    <%= yield %>
+      <%= yield %>
+    </div>
+    
+    <div class="sidebar">
+      <%= yield :sidebar %>
+    </div>
+    
   </body>
 </html>
