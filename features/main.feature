@@ -37,8 +37,8 @@ Feature: Fake a tweet
     Then I should see "fewTweeter has very few tweets. Try the suggestions for a little variety."
 
   Scenario: Suggest users in sidebar
-    Given "BarackObama" is a suggested user with the name "Barack Obama"
-    And "EllenDegeneres" is a suggested user
+    Given "BarackObama" has tweeted "Vote for change"
     When I go to the home page
     Then I should see "Barack Obama"
-    And I should see "EllenDegeneres"
+    When I follow the "Barack Obama" suggested user link
+    Then I should see "Vote for change"

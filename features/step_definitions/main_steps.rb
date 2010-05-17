@@ -27,7 +27,9 @@ Given /^"([^\"]*)" has tweeted the following:$/ do |screen_name, table|
 end
 
 Given /^"([^\"]*)" is a suggested user(?: with the name "([^\"]*)")?$/ do |screen_name, name|
-  SuggestedUser.create!(:screen_name => screen_name, :name => name)
+  @suggested_users ||= []
+  @suggested_users << {'screen_name' => screen_name, 'name' => name}
+  SuggestedUser.stub!(:top_suggested_users).and_return(@suggested_users)
 end
 
 When /^(?:|I )fill in "([^\"]*)" with the non-existent screen-name "([^\"]*)"$/ do |field, screen_name|
@@ -35,6 +37,13 @@ When /^(?:|I )fill in "([^\"]*)" with the non-existent screen-name "([^\"]*)"$/ 
   response = Typhoeus::Response.new(:code => 404)
   Typhoeus::Hydra.hydra.stub(:get, tweet_url_regex_for(screen_name)).and_return(response)
   # FakeWeb.register_uri(:get, tweet_url_regex_for(screen_name), :status => ["404", "Not Found"])
+end
+
+When /^I follow the "([^\"]*)" suggested user link$/ do |link|
+  webrat.simulate do
+    click_link(link)
+    click_button("Fake it")
+  end
 end
 
 Then /^I should see one of:$/ do |table|

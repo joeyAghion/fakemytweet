@@ -1,30 +1,51 @@
-<% form_tag do %>
+<% content_for :dom_ready do %>
+  $('a.suggested_user').click(function() {
+    $('#screen_name').val($(this).attr('data-screen_name'));
+    $('#screen_name_form').submit();
+    return false;
+  });
+  $('a#more_suggested_users').click(function(){
+    var visible = $('ul.suggested_users:visible'),
+        next = visible.next('ul.suggested_users');
+    if(next.length == 0) next = $('ul.suggested_users:first')
+    visible.fadeOut('fast', function(){ next.fadeIn('fast'); });
+    return false;
+  });
+<% end %>
+
+<% form_tag index_path, :id => 'screen_name_form', 'data-loads' => '#next_tweet' do %>
   <label>Twitter Username:</label>
   <%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
   <%= submit_tag 'Fake it!', :class => 'button' %>
 <% end %>
 
-<% if @tweeter.has_tweets?
-  next_tweet = @tweeter.next_tweet
-%>
-  <h2><%=h @tweeter.screen_name %>'s next tweet:</h2>
-  <p><%=h next_tweet %></p>
-  <% form_tag '', :style => 'display:inline' do %>
-    <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
-    <%= submit_tag 'Try again', :class => 'button minor_button' %>
+<div id="next_tweet">
+  <% if @tweeter.has_tweets?
+    next_tweet = @tweeter.next_tweet
+  %>
+    <h2><%=h @tweeter.screen_name %>'s next tweet:</h2>
+    <p><%=h next_tweet %></p>
+    <% form_tag '', :style => 'display:inline', 'data-loads'  => '#next_tweet' do %>
+      <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
+      <%= submit_tag 'Try again', :class => 'button minor_button' %>
+    <% end %>
+    <% form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
+      <%= hidden_field_tag :status, next_tweet + " (by @fakemytweet)" %>
+      <%= submit_tag 'Tweet this', :class => 'button minor_button' %>
+    <% end %>
   <% end %>
-  <% form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
-    <%= hidden_field_tag :status, next_tweet + " (by @fakemytweet)" %>
-    <%= submit_tag 'Tweet this', :class => 'button minor_button' %>
-  <% end %>
-  
-<% end %>
+</div>
 
 <% content_for :sidebar do %>
   <h3>Or try these suggestions:</h3>
-  <ul>
-    <% SuggestedUser.top_suggested_users.each do |suggested_user| %>
-      <li><%= link_to suggested_user[:display_name], index_path(:screen_name => suggested_user[:screen_name]) %></li>
-    <% end %>
-  </ul>
+  <% SuggestedUser.top_suggested_users.in_groups_of(20).each_with_index do |suggested_users, i| %>
+    <ul class="suggested_users <%= 'hidden' unless i == 0 %>">
+      <% suggested_users.compact.each do |suggested_user| %>
+        <li>
+          <%= link_to suggested_user['name'], index_path(:screen_name => suggested_user['screen_name']), 'data-screen_name' => suggested_user['screen_name'], :class => 'suggested_user' %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= link_to "more &raquo;", '#', :id => 'more_suggested_users', :class => 'more' %>
 <% end %>

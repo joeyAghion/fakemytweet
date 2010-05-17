@@ -1,0 +1,201 @@
+--- 
+- name: Ashton Kutcher
+  screen_name: aplusk
+- name: Britney Spears
+  screen_name: britneyspears
+- name: Ellen DeGeneres
+  screen_name: TheEllenShow
+- name: Lady Gaga
+  screen_name: ladygaga
+- name: Barack Obama
+  screen_name: BarackObama
+- name: Kim Kardashian
+  screen_name: KimKardashian
+- name: Oprah Winfrey
+  screen_name: Oprah
+- name: John Mayer
+  screen_name: johncmayer
+- name: Taylor Swift
+  screen_name: taylorswift13
+- name: Ryan Seacrest
+  screen_name: RyanSeacrest
+- name: CNN Breaking News
+  screen_name: cnnbrk
+- name: Ashley Tisdale
+  screen_name: ashleytisdale
+- name: Shaquille O'Neal
+  screen_name: THE_REAL_SHAQ
+- name: Coldplay
+  screen_name: coldplay
+- name: Mariah Carey
+  screen_name: MariahCarey
+- name: Demi Moore
+  screen_name: mrskutcher
+- name: P. Diddy
+  screen_name: iamdiddy
+- name: Jimmy Fallon
+  screen_name: jimmyfallon
+- name: 50 Cent
+  screen_name: 50cent
+- name: Lance Armstrong
+  screen_name: lancearmstrong
+- name: Jessica Simpson
+  screen_name: JessicaSimpson
+- name: Justin Bieber
+  screen_name: justinbieber
+- name: The New York Times
+  screen_name: nytimes
+- name: Katy Perry
+  screen_name: katyperry
+- name: The Onion
+  screen_name: TheOnion
+- name: Justin Timberlake
+  screen_name: jtimberlake
+- name: Ashlee Simpson Wentz
+  screen_name: ashsimpsonwentz
+- name: Chelsea Handler
+  screen_name: chelseahandler
+- name: Lily Rose Allen
+  screen_name: lilyroseallen
+- name: E! Online
+  screen_name: eonline
+- name: Al Gore
+  screen_name: algore
+- name: Tony Hawk
+  screen_name: tonyhawk
+- name: TIME.com
+  screen_name: TIME
+- name: Pete Wentz
+  screen_name: petewentz
+- name: People magazine
+  screen_name: peoplemag
+- name: Mandy Moore
+  screen_name: TheMandyMoore
+- name: Martha Stewart
+  screen_name: MarthaStewart
+- name: Paris Hilton
+  screen_name: ParisHilton
+- name: MC Hammer
+  screen_name: MCHammer
+- name: John Legend
+  screen_name: johnlegend
+- name: NPR Politics
+  screen_name: nprpolitics
+- name: Joel McHale
+  screen_name: joelmchale
+- name: Lenny Kravitz
+  screen_name: LennyKravitz
+- name: Whole Foods Market
+  screen_name: WholeFoods
+- name: Brooke Burke
+  screen_name: brookeburke
+- name: The White House
+  screen_name: whitehouse
+- name: Tony Robbins
+  screen_name: tonyrobbins
+- name: Giuliana Rancic
+  screen_name: GiulianaRancic
+- name: BBC Click
+  screen_name: BBCClick
+- name: Felicia Day
+  screen_name: feliciaday
+- name: UK Prime Minister
+  screen_name: Number10gov
+- name: John McCain
+  screen_name: SenJohnMcCain
+- name: Al Yankovic
+  screen_name: alyankovic
+- name: Breaking News
+  screen_name: BreakingNews
+- name: Good Morning America
+  screen_name: GMA
+- name: Nick Cannon
+  screen_name: NickCannon
+- name: Arnold Schwarzenegger
+  screen_name: Schwarzenegger
+- name: Tony Hsieh - Zappos.com CEO
+  screen_name: zappos
+- name: Jonas Brothers
+  screen_name: Jonasbrothers
+- name: Kevin Smith
+  screen_name: ThatKevinSmith
+- name: Paula Abdul
+  screen_name: PaulaAbdul
+- name: George Stephanopoulos
+  screen_name: GStephanopoulos
+- name: Rachel Maddow - MSNBC
+  screen_name: maddow
+- name: InStyle
+  screen_name: InStyle
+- name: Biz Stone
+  screen_name: biz
+- name: Kevin Spacey
+  screen_name: KevinSpacey
+- name: ICanHasCheezburger?
+  screen_name: ICHCheezburger
+- name: Denise Richards
+  screen_name: DENISE_RICHARDS
+- name: Larry King
+  screen_name: kingsthings
+- name: Serena Williams
+  screen_name: serenajwilliams
+- name: Penn Jillette
+  screen_name: pennjillette
+- name: Women's Wear Daily
+  screen_name: womensweardaily
+- name: NFL
+  screen_name: nfl
+- name: LeVar Burton
+  screen_name: levarburton
+- name: JetBlue Airways
+  screen_name: JetBlue
+- name: Jack Dorsey
+  screen_name: jack
+- name: Peter Facinelli
+  screen_name: peterfacinelli
+- name: The Moment
+  screen_name: themoment
+- name: CBS News
+  screen_name: CBSNews
+- name: Dell Outlet
+  screen_name: DellOutlet
+- name: Dwight Howard
+  screen_name: DwightHoward
+- name: Michael Ian Black
+  screen_name: michaelianblack
+- name: Eddie Izzard
+  screen_name: eddieizzard
+- name: Jimmy Eat World
+  screen_name: jimmyeatworld
+- name: World Economic Forum
+  screen_name: davos
+- name: Paul Pierce
+  screen_name: paulpierce34
+- name: Threadless
+  screen_name: threadless
+- name: Ryan Sheckler
+  screen_name: RyanSheckler
+- name: Stephen Colbert
+  screen_name: StephenAtHome
+- name: Nightline
+  screen_name: Nightline
+- name: David Gregory
+  screen_name: davidgregory
+- name: Los Angeles Lakers
+  screen_name: Lakers
+- name: Pitchfork
+  screen_name: pitchforkmedia
+- name: Ryan Penagos
+  screen_name: Agent_M
+- name: Ana Marie Cox
+  screen_name: anamariecox
+- name: Steven Johnson
+  screen_name: stevenbjohnson
+- name: Neil Gaiman
+  screen_name: neilhimself
+- name: Alicia Keys
+  screen_name: aliciakeys
+- name: FragDolls
+  screen_name: FragDolls
+- name: Chris Cornell
+  screen_name: chriscornell

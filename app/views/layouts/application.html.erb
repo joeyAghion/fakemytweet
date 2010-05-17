@@ -3,38 +3,58 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>Fake My Tweet</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        $.loadingImg = document.createElement('img');  // pre-load loading image
+        $.loadingImg.src = '/images/loading.gif';
+        $('form[data-loads]').submit(function(){ $($(this).attr('data-loads')).addClass('loading'); });
+        <%= yield :dom_ready %>
+      });
+    </script>
     <style type="text/css">
-      body { font-family:Helvetica, Arial, sans-serif;color: #333;padding:40px 20%; }
+      body { font-family:Helvetica, Arial, sans-serif;color:#333; }
       label { display:block; font-size:110%; font-weight:bold; color:#aaa; }
-      input.text_field { border:1px solid #aaa; font-size:110%; width:400px; padding:7px; }
+      #notice { margin-top:0;}
+      #container { margin: 20px 25%; clear:both;}
+      #main { width:60%; float:left; padding:10px 3% 10px 0; }
+      #footer { text-align:center; font-size:65%; clear:both; padding-top:3em; color: #666; }
+      a { color:#77a; }
+      input.text_field { border:1px solid #aaa; font-size:110%; width:300px; padding:7px; }
       input.button { width:100px; border:1px solid #aaa; font-size:110%; background:#e6e6e6; padding:7px; color:#777; text-align:center; text-decoration:none; }
       input.button:hover { border:1px solid #666; color:#444; }
       input.minor_button { font-size:70%; padding:0; }
-      h1 { color:#efefef; font-size:500%; margin:0 0 20px 0; }
-      h2 { color:#fc0; margin: 2em 0 0.5em; }
-      p.fake_tweet { float:left; width:80%; }
-      .main { width:65%; float:left; padding:10px 2%; }
-      .sidebar { float:right; width:25%; margin-left:6%; font-size: 80%; color: #666; }
-      .sidebar a { color:#77c; }
-      .sidebar ul { list-style: none; margin: 0; padding: 0; }
-      .sidebar ul li { padding: 6px 0;}
+      h1 { color:#efefef; font-size:500%; margin:40px 0 20px 0; }
+      h2 { color:#fc0; }
+      .hidden { display:none; }
+      #next_tweet { padding:2em 0; }
+      .loading { background:url(/images/loading.gif) no-repeat center; opacity:.4; -moz-opacity:.4; filter:alpha(opacity=40); }
+      #sidebar { float:right; width:25%; font-size: 75%; color: #666; }
+      #sidebar ul { list-style: none; margin: 0; padding: 0; }
+      #sidebar ul li { padding:6px 0; color:#aaa; }
+      a.more { float:right; text-decoration:none; font-style:italic; }
     </style>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Fake My Tweet</h1>
+    <div id="container">
+      <h1>Fake My Tweet</h1>
 
-    <div class="main">
-      <% if flash[:notice] -%>
-        <p id="notice"><%=h flash[:notice] %></p>
-      <% end %>
+      <div id="main">
+        <% if flash[:notice] -%>
+          <p id="notice"><%=h flash[:notice] %></p>
+        <% end %>
     
-      <%= yield %>
+        <%= yield %>
+      </div>
+    
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+      
+      <div id="footer">
+        Special thanks to <a href="http://en.wikipedia.org/wiki/Andrey_Markov">Andrey Markov</a>.
+      </div>
     </div>
-    
-    <div class="sidebar">
-      <%= yield :sidebar %>
-    </div>
-    
+
   </body>
 </html>

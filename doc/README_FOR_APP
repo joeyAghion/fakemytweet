@@ -4,8 +4,8 @@ TO DO
 X> Hook up try another/tweet this buttons
 X> Handle bad names / no data
 X> Display notice of too few tweets if less than X with prompt to use suggestions.
-Show list of prolific/suggested tweeters as shortcuts instead of submitting screen_name.
-Ajax-ify tweet-downloading/generation.
+X> Show list of prolific/suggested tweeters as shortcuts instead of submitting screen_name.
+X> Ajax-ify tweet-downloading/generation.
 Google analytics.
 Log errors to hoptoad.
 Avoid single-use terms from driving a repeat tweet (randomness?).

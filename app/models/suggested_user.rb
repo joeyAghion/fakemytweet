@@ -1,3 +1,5 @@
+require 'yaml'
+
 class SuggestedUser < ActiveRecord::Base
   
   def self.load_suggested_users
@@ -13,12 +15,13 @@ class SuggestedUser < ActiveRecord::Base
   end
   
   def self.top_suggested_users
-    unless @top_suggested_users = Rails.cache.read('SuggestedUser/top_suggested_users')
-      @top_suggested_users = all(:order => 'followers_count DESC', :limit => 200).
-        sort_by{rand}[0..11].map{|u| {:screen_name => u.screen_name, :display_name => u.display_name} }
-      Rails.cache.write('SuggestedUser/top_suggested_users', @top_suggested_users, :expires_in => 15.minutes) unless @top_suggested_users.empty?
-    end
-    @top_suggested_users
+    @@top_suggested_users ||= YAML.load_file(File.join(Rails.root, 'config', 'suggested_users.yml'))
+    # unless @top_suggested_users = Rails.cache.read('SuggestedUser/top_suggested_users')
+    #   @top_suggested_users = all(:order => 'followers_count DESC', :limit => 200).
+    #     sort_by{rand}[0..11].map{|u| {:screen_name => u.screen_name, :display_name => u.display_name, :description => u.description} }
+    #   Rails.cache.write('SuggestedUser/top_suggested_users', @top_suggested_users, :expires_in => 15.minutes) unless @top_suggested_users.empty?
+    # end
+    # @top_suggested_users
   end
   
   def display_name
