@@ -13,3 +13,17 @@ Avoid single-use terms from driving a repeat tweet (randomness?).
 Generate more than one fake tweet.
 Footer links to markov chain models.
 Feedback.
+
+
+
+SET-UP LOG
+==========
+  $ sudo gem install templater
+  $ git clone git://github.com/benburkert/sous-chef.git
+  $ cd sous-chef
+  $ sudo rake install
+
+  $ sudo gem install ey --source=http://gems.engineyard.com
+  $ sudo gem install aws-s3
+  $ sudo gem install rest-client
+  $ chef -T  # to show available commands
