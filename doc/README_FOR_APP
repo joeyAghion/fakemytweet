@@ -26,4 +26,11 @@ SET-UP LOG
   $ sudo gem install ey --source=http://gems.engineyard.com
   $ sudo gem install aws-s3
   $ sudo gem install rest-client
+  
+  $ cd ~/dev/fakemytweet
+  $ chefify .
+  $ chef-gen node main --environment=staging --platform=ec2
+  
   $ chef -T  # to show available commands
+  
+  
