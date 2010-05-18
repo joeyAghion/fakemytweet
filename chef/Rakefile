@@ -1,3 +1,0 @@
-require 'sous-chef'
-
-SousChef::ApplicationTask.new(File.dirname(__FILE__))
