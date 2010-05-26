@@ -11,10 +11,38 @@ server {
   location / {
     root   /srv/<%= @node[:app][:name] %>/current/public;
     
+    index index.html index.htm;
+
+    # needed to forward user's IP address to rails
+    proxy_set_header  X-Real-IP       $remote_addr;
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header  Host            $http_host;
+
+    proxy_redirect off;
+    proxy_max_temp_file_size 0;
+
+    # set Expire header on assets: see http://developer.yahoo.com/performance/rules.html#expires
+    location ~ ^/(images|javascripts|stylesheets|facebox|flash_movie|htc|assets)/ {
+      expires max;
+    }
+
     # serve any existing file
     if (-f $request_filename) { 
       break; 
     }
+
+    # return 404 for favicon requests not at the doc root
+    if ($request_uri ~ ^\/.+/favicon.ico$) {
+      return 404;
+    }
+
+    # serve any standard Rails page cache file with .html extension
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
+    # kill the trailing slash
+    rewrite ^(..*)/$ $1;
     
     if (!-f $request_filename) {
       proxy_pass http://<%= @node[:app][:name] %>_upstream;
