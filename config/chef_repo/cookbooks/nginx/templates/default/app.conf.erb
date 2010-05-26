@@ -9,7 +9,7 @@ server {
   access_log  <%= @node[:nginx][:log_dir] %>/localhost.access.log;
 
   location / {
-    root   /srv/<%= @node[:app][:name] %>/current;
+    root   /srv/<%= @node[:app][:name] %>/current/public;
     
     # serve any existing file
     if (-f $request_filename) { 
