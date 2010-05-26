@@ -14,6 +14,7 @@ Avoid single-use terms from driving a repeat tweet (randomness?).
 Generate more than one fake tweet.
 Feedback.
 set REE in path correctly (from chef?)
+get /etc/init.d/fakemytweet hup working again
 
 
 SET-UP LOG
