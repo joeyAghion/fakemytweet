@@ -4,7 +4,7 @@ upstream <%= @node[:app][:name] %>_upstream {
 
 server {
   listen   80;
-  server_name  <%= @node[:hostname] %>;
+  server_name  <%= @node[:app][:server_name] %>;
 
   access_log  <%= @node[:nginx][:log_dir] %>/localhost.access.log;
 

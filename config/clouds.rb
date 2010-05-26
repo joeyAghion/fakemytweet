@@ -19,8 +19,7 @@ pool :fakemytweet do
     
     chef do
       repo File.join(File.dirname(__FILE__), 'chef_repo')
-      attributes :hostname => 'fakemytweet.com',
-                 :app      => {:name => 'fakemytweet'},
+      attributes :app      => {:name => 'fakemytweet', :server_name => 'fakemytweet.com'},
                  :unicorn  => {:version => '0.99.0', :port => 3000, :options => {:backlog => 1024, :tcp_nodelay => true}},
                  :app_environment => 'production',
                  :apps     => {'fakemytweet' => {'production' => {:run_migrations => false}}},
