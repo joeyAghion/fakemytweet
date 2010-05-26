@@ -49,7 +49,9 @@ end
 if File.exists?(File.join(app['deploy_to'], "current"))
   d = resources(:deploy => app['id'])
   d.restart_command do
-    execute "/etc/init.d/#{app['id']} hup"
+    execute "/etc/init.d/#{app['id']} hup" do
+      cwd File.join(app['deploy_to'], "current")
+    end
   end
 end
 

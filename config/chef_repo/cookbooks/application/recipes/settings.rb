@@ -3,6 +3,6 @@ $app = {'id' => 'fakemytweet',
         'owner' => 'root',
         'group' => 'root',
         'revision' => {'production' => 'master'},
-        'force' => {'production' => false},
+        'force' => {'production' => true},
         'repository' => 'file:///tmp/fakemytweet/.git',
         'migrate' => {'production' => false}}
