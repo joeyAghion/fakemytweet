@@ -179,9 +179,9 @@ deploy_revision app['id'] do
   else
     migrate false
   end
-  symlink_before_migrate({
-    "database.yml" => "config/database.yml",
-    "memcached.yml" => "config/memcached.yml"
-  })
+  # symlink_before_migrate({
+  #   "database.yml" => "config/database.yml",
+  #   "memcached.yml" => "config/memcached.yml"
+  # })
   enable_submodules true
 end
