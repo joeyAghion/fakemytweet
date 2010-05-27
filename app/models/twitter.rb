@@ -17,7 +17,6 @@ module Twitter
   def self.suggestions
     returning([]) do |results|
       request(:suggestion_categories).each do |category|
-STDERR.puts "Trying to load category #{category.inspect}"
         results << request(:suggestions, 'slug' => category['slug'])
       end
     end

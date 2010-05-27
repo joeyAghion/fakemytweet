@@ -53,4 +53,4 @@ customized clouds.rb in root
 fakemytweet_env  # set EC2_ACCESS_KEY and EC2_SECRET_KEY
 cloud start
 
-rsync -avz -e "ssh -i /Users/joey/.ec2/fakemytweet.pem" . root@ec2-174-129-106-151.compute-1.amazonaws.com:/tmp/fakemytweet
+rsync -avz -e "ssh -i /Users/joey/.ec2/fakemytweet.pem" --exclude='vendor/*' . root@ec2-174-129-106-151.compute-1.amazonaws.com:/tmp/fakemytweet

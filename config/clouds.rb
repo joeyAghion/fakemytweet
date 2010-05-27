@@ -23,16 +23,18 @@ pool :fakemytweet do
                  :unicorn  => {:version => '0.99.0', :port => 3000, :options => {:backlog => 1024, :tcp_nodelay => true}},
                  :app_environment => 'production',
                  :apps     => {'fakemytweet' => {'production' => {:run_migrations => false}}},
-                 :rails    => {:version => '2.3.5'}
+                 :rails    => {:version => '2.3.5'}#,
+                 #:nginx    => {:daemon_disable => true}
       recipe 'rubygems'
       recipe 'ruby_enterprise'
 #      recipe 'ruby'
-      recipe 'nginx::default'
       recipe 'rails_enterprise'
 #      recipe 'rails'
       #recipe 'unicorn'
+      recipe 'fakemytweet'
       recipe 'application::rails'
       recipe 'application::unicorn'
+      recipe 'nginx::default'
       # recipe "apache2"
       # attributes :apache2 => {:listen_ports => ["80", "8080"]}
       # recipe "passenger_enterprise"
