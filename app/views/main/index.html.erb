@@ -13,7 +13,7 @@
   });
 <% end %>
 
-<% form_tag index_path, :id => 'screen_name_form', 'data-loads' => '#next_tweet' do %>
+<% form_tag index_path, :id => 'screen_name_form', 'data-loads' => '#next_tweet', :method => :get do %>
   <label>Twitter Username:</label>
   <%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
   <%= submit_tag 'Fake it!', :class => 'button' %>
@@ -25,7 +25,7 @@
   %>
     <h2><%=h @tweeter.screen_name %>'s next tweet:</h2>
     <p><%=h next_tweet %></p>
-    <% form_tag '', :style => 'display:inline', 'data-loads'  => '#next_tweet' do %>
+    <% form_tag '', :style => 'display:inline', 'data-loads'  => '#next_tweet', :method => :get do %>
       <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
       <%= submit_tag 'Try again', :class => 'button minor_button' %>
     <% end %>
