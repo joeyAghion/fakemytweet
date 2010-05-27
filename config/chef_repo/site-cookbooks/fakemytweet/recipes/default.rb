@@ -2,4 +2,7 @@
 #   cwd "/tmp"
 # end
 
+package "libcurl4-gnutls-dev"
+
+ree_gem "json"
 ree_gem "typhoeus"
