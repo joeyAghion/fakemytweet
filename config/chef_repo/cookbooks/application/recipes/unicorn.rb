@@ -49,7 +49,7 @@ end
 if File.exists?(File.join(app['deploy_to'], "current"))
   d = resources(:deploy => app['id'])
   d.restart_command do
-    execute "cd #{File.join(app['deploy_to'], "current")} && /etc/init.d/#{app['id']} hup"  # not hup... wasn't working
+    execute "cd #{File.join(app['deploy_to'], "current")} && /etc/init.d/#{app['id']} restart"  # not hup... wasn't working
   end
 end
 
