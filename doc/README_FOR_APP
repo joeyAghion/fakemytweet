@@ -7,7 +7,8 @@ X> Display notice of too few tweets if less than X with prompt to use suggestion
 X> Show list of prolific/suggested tweeters as shortcuts instead of submitting screen_name.
 X> Ajax-ify tweet-downloading/generation.
 X> Footer links to markov chain models.
-Google analytics.
+X> Google analytics.
+Figure out cause of apparent pattern in randomness
 Log errors to hoptoad.
 Avoid single-use terms from driving a repeat tweet (randomness?).
 --Add route that includes twitter username.
