@@ -23,8 +23,7 @@ class MainController < ApplicationController
         flash.now[:notice] = "We didn't hear back from Twitter in time. Try again later."
       rescue => ex
         flash.now[:notice] = 'Whoops - There was a problem. Try again later.'
-        Rails.logger.info ex.message  # TODO propagate this somewhere
-        Rails.logger.info ex.backtrace
+        notify_hoptoad(ex)
       end
     end
   end
