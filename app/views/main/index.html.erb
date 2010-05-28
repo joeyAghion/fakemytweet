@@ -14,8 +14,7 @@
 <% end %>
 
 <% form_tag index_path, :id => 'screen_name_form', 'data-loads' => '#next_tweet', :method => :get do %>
-  <label>Twitter Username:</label>
-  <%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
+  <label>Twitter Username:</label>&nbsp;<%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
   <%= submit_tag 'Fake it!', :class => 'button', :name => '' %>
 <% end %>
 
