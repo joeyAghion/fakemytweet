@@ -4,7 +4,9 @@ require 'json'
 module Twitter
 
   REQUEST_TIMEOUT_MS = 10_000
-  MAX_TWEETS = 200
+  MAX_PER_PAGE = 200
+  MAX_TWEETS = 600
+  MAX_PAGES = (MAX_TWEETS / MAX_PER_PAGE.to_f).ceil
   API_URLS = {
     :user_timeline           => "http://api.twitter.com/1/statuses/user_timeline.json",
     :suggestion_categories   => "http://api.twitter.com/1/users/suggestions.json",
@@ -12,7 +14,11 @@ module Twitter
   }
 
   def self.user_timeline(screen_name, count = MAX_TWEETS, skip_user = true)
-    request(:user_timeline, 'screen_name' => screen_name, 'count' => count, 'skip_user' => skip_user)
+    pages = []
+    begin
+      pages << request(:user_timeline, 'screen_name' => screen_name, 'count' => MAX_PER_PAGE, 'skip_user' => skip_user, 'page' => pages.size+1)
+    end while !pages.last.empty? && pages.size < MAX_PAGES
+    pages.flatten
   end
   
   def self.suggestions
