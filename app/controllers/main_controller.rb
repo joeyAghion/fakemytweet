@@ -8,6 +8,7 @@ class MainController < ApplicationController
   def index
     if params[:screen_name].present?
       begin
+        a = 23/0
         if @tweeter.valid?
           if tweets = @tweeter.load_tweets
             if tweets.empty?
