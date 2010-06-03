@@ -48,6 +48,7 @@ rake clean_pkg && rake gemspec
 rake build
 [sudo] gem install pkg/poolparty-<version>.gem
 sudo gem install aws
+sudo gem install amazon-ec2
 customized clouds.rb in root
 # remove false from support.rb:49 in aws
 
