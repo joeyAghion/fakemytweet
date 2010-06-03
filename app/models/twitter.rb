@@ -17,7 +17,7 @@ module Twitter
     pages = []
     begin
       pages << request(:user_timeline, 'screen_name' => screen_name, 'count' => MAX_PER_PAGE, 'skip_user' => skip_user, 'page' => pages.size+1)
-    end while !pages.last.empty? && pages.size < MAX_PAGES
+    end while !pages.empty? && !pages.last.empty? && pages.size < MAX_PAGES
     pages.flatten
   end
   
