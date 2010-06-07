@@ -15,6 +15,8 @@ pool :fakemytweet do
       # image_id 'ami-acd538c5' # Weplay Build Server AMI
       # instance_type 'm1.small'
       # availability_zones ['us-east-1b']
+      spot_price '0.085'
+      launch_group 'test_launch_group_yo'
     end
     
     chef do
