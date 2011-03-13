@@ -1,5 +1,4 @@
 require 'typhoeus'
-require 'json'
 
 module Twitter
 
