@@ -135,6 +135,7 @@ DEPENDENCIES
   fakeweb
   heroku
   hoptoad_notifier
+  json
   rails (= 3.0.4)
   rspec
   rspec-rails

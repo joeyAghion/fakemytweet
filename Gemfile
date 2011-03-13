@@ -5,6 +5,7 @@ gem 'rails', '3.0.4'
 gem 'sqlite3'
 gem 'hoptoad_notifier'
 gem 'typhoeus'
+gem 'json'
 
 group :development do
   gem 'heroku'
