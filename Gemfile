@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'hoptoad_notifier'
 gem 'typhoeus'
 gem 'json'
+gem 'oauth'
 
 group :development do
   gem 'heroku'
