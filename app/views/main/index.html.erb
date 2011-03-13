@@ -13,7 +13,7 @@
   });
 <% end %>
 
-<% form_tag index_path, :id => 'screen_name_form', 'data-loads' => '#next_tweet', :method => :get do %>
+<%= form_tag root_path, :id => 'screen_name_form', 'data-loads' => '#next_tweet', :method => :get do %>
   <label>Twitter Username:</label>&nbsp;<%= text_field_tag :screen_name, params[:screen_name], :placeholder => 'Enter any Twitter username', :class => 'text_field' %>
   <%= submit_tag 'Fake it!', :class => 'button', :name => '' %>
 <% end %>
@@ -24,11 +24,11 @@
   %>
     <h2><%=h @tweeter.screen_name %>'s next tweet:</h2>
     <p><%=h next_tweet %></p>
-    <% form_tag '', :style => 'display:inline', 'data-loads'  => '#next_tweet', :method => :get do %>
+    <%= form_tag '', :style => 'display:inline', 'data-loads'  => '#next_tweet', :method => :get do %>
       <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
       <%= submit_tag 'Try again', :class => 'button minor_button', :name => '' %>
     <% end %>
-    <% form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
+    <%= form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
       <%= hidden_field_tag :status, next_tweet + " (by @fakemytweet)" %>
       <%= submit_tag 'Tweet this', :class => 'button minor_button', :name => '' %>
     <% end %>
@@ -41,10 +41,10 @@
     <ul class="suggested_users <%= 'hidden' unless i == 0 %>">
       <% suggested_users.compact.each do |suggested_user| %>
         <li>
-          <%= link_to suggested_user['name'], index_path(:screen_name => suggested_user['screen_name']), 'data-screen_name' => suggested_user['screen_name'], :class => 'suggested_user' %>
+          <%= link_to suggested_user['name'], root_path(:screen_name => suggested_user['screen_name']), 'data-screen_name' => suggested_user['screen_name'], :class => 'suggested_user' %>
         </li>
       <% end %>
     </ul>
   <% end %>
-  <%= link_to "more &raquo;", '#', :id => 'more_suggested_users', :class => 'more' %>
+  <%= link_to raw("more &raquo;"), '#', :id => 'more_suggested_users', :class => 'more' %>
 <% end %>

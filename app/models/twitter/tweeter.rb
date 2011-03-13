@@ -23,7 +23,7 @@ module Twitter
     def next_tweet
       raise "Can't generate tweet without inputs!" unless has_tweets?
 
-      returning ("") do |sentence|
+      "".tap do |sentence|
         chain = MarkovChain.new(tweet_text)
         word = "<tweet>"
         until word == "</tweet>" || sentence.length + word.length >= 148  # 140 + starting tag

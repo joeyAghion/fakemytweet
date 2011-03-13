@@ -1,1 +1,0 @@
-require 'config/clouds.rb'
