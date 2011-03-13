@@ -7,6 +7,7 @@ gem 'hoptoad_notifier'
 gem 'typhoeus'
 
 group :development do
+  gem 'heroku'
   gem 'ruby-debug19'
 end
 
