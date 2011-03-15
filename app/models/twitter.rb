@@ -42,7 +42,7 @@ private
     # return nil if response.code >= 400 && response.code <= 499
     # raise "Error accessing Twitter API #{endpoint.to_s} (response code #{response.code rescue '(none)'})." unless response.success?
     
-    url = API_URLS[endpoint].concat("?" + params.collect{|k,v| "#{k}=#{CGI::escape(v.to_s)}"}.join('&'))
+    url = API_URLS[endpoint] + "?" + params.collect{|k,v| "#{k}=#{CGI::escape(v.to_s)}"}.join('&')
     # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
     access_token = prepare_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
     # use the access token as an agent to get the home timeline
