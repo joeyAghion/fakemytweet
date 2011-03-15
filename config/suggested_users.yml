@@ -1,6 +1,8 @@
 --- 
 - name: Charlie Sheen
   screen_name: charliesheen
+- name: Kanye West
+  screen_name: kanyewest
 - name: Ashton Kutcher
   screen_name: aplusk
 - name: Britney Spears
@@ -71,8 +73,6 @@
   screen_name: petewentz
 - name: People magazine
   screen_name: peoplemag
-- name: Mandy Moore
-  screen_name: TheMandyMoore
 - name: Martha Stewart
   screen_name: MarthaStewart
 - name: Paris Hilton
@@ -171,8 +171,6 @@
   screen_name: jimmyeatworld
 - name: World Economic Forum
   screen_name: davos
-- name: Paul Pierce
-  screen_name: paulpierce34
 - name: Threadless
   screen_name: threadless
 - name: Ryan Sheckler
