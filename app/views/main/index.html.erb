@@ -28,10 +28,10 @@
       <%= hidden_field_tag :screen_name, @tweeter.screen_name %>
       <%= submit_tag 'Try again', :class => 'button minor_button', :name => '' %>
     <% end %>
-    <%= form_tag 'http://twitter.com/', :method => :get, :target => '_blank', :style => 'display:inline' do %>
-      <%= hidden_field_tag :status, next_tweet + " (by @fakemytweet)" %>
-      <%= submit_tag 'Tweet this', :class => 'button minor_button', :name => '' %>
-    <% end %>
+    <form action="http://twitter.com/home" target="_blank" style="display:inline;">
+      <input type="hidden" name="status" value="<%= next_tweet + " (by @fakemytweet)" %>">
+      <%= submit_tag 'Tweet this', :class => 'button minor_button' %>
+    </form>
   <% end %>
 </div>
 
