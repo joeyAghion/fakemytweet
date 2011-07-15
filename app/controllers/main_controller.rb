@@ -28,11 +28,6 @@ class MainController < ApplicationController
     end
   end
   
-  # def create
-  #   
-  #   render :action => 'index'
-  # end
-  
   private
   
   def load_tweeter
